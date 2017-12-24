@@ -12,10 +12,12 @@ import {
 } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
-const GRADIENT_WIDTH = width * 3;
+const GRADIENT_WIDTH = height * 3;
 const GRADIENT_HEIGHT = height * 3;
 const GRADIENT_OFFSET_X = (GRADIENT_WIDTH - width) / 2;
 const GRADIENT_OFFSET_Y = (GRADIENT_HEIGHT - height) / 2;
+const MAX_X_VAL = GRADIENT_WIDTH / 2;
+const MAX_Y_VAL = GRADIENT_HEIGHT / 2;
 
 import { Accelerometer } from 'react-native-sensors';
 
@@ -25,19 +27,19 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.gyroscopeObservable = new Accelerometer({
-      updateInterval: 25,
+      updateInterval: 50,
     });
 
     this.gyroscopeObservable.subscribe(({ x, y, z }) => {
       Animated.timing(this.x, {
         toValue: x,
-        duration: 25,
+        duration: 100,
         useNativeDriver: true,
       }).start();
 
       Animated.timing(this.y, {
         toValue: y,
-        duration: 25,
+        duration: 100,
         useNativeDriver: true,
       }).start();
     });
@@ -50,56 +52,78 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Animated.View
-          style={[
-            styles.gradientContainer,
-            {
-              transform: [
-                {
-                  translateX: this.x.interpolate({
-                    inputRange: [-1, 0, 1],
-                    outputRange: [
-                      -GRADIENT_OFFSET_X * 1.5,
-                      0,
-                      GRADIENT_OFFSET_X * 1.5,
-                    ],
-                    extrapolate: 'clamp',
-                  }),
-                },
-                {
-                  translateY: this.y.interpolate({
-                    inputRange: [-1, 0, 1],
-                    outputRange: [
-                      GRADIENT_OFFSET_Y * 1.5,
-                      0,
-                      -GRADIENT_OFFSET_Y * 1.5,
-                    ],
-                    extrapolate: 'clamp',
-                  }),
-                },
-              ],
-            },
-          ]}
+        <View
+          style={{
+            ...StyleSheet.absoluteFillObject,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
         >
-          <LinearGradient
-            colors={[
-              '#405de6',
-              '#5851db',
-              '#833ab4',
-              '#c13584',
-              '#e1306c',
-              '#fd1d1d',
-              '#f56040',
-            ]}
-            start={{ x: 0.0, y: 0.25 }}
-            end={{ x: 0.5, y: 1.0 }}
-            style={styles.gradient}
-          />
-        </Animated.View>
-        <Image
-          style={[{ ...StyleSheet.absoluteFillObject }]}
-          source={require('./dots.png')}
-        />
+          <View
+            style={{
+              overflow: 'hidden',
+              height: 240,
+              width: width - 32,
+              backgroundColor: '#4D4D50',
+              borderRadius: 24,
+            }}
+          >
+            <Animated.View
+              style={{
+                opacity: this.y.interpolate({
+                  inputRange: [-0.7, -0.4, 0, 0.4, 0.7],
+                  outputRange: [0, 1, 1, 1, 0],
+                  extrapolate: 'clamp',
+                }),
+              }}
+            >
+              <Animated.View
+                style={[
+                  styles.gradientContainer,
+                  {
+                    opacity: this.x.interpolate({
+                      inputRange: [-0.8, -0.6, 0, 0.6, 0.8],
+                      outputRange: [0, 1, 1, 1, 0],
+                      extrapolate: 'clamp',
+                    }),
+                    transform: [
+                      {
+                        translateX: this.x.interpolate({
+                          inputRange: [-1, 0, 1],
+                          outputRange: [-MAX_X_VAL, 0, MAX_X_VAL],
+                          extrapolate: 'clamp',
+                        }),
+                      },
+                      {
+                        translateY: this.y.interpolate({
+                          inputRange: [-1, 0, 1],
+                          outputRange: [MAX_Y_VAL, 0, -MAX_Y_VAL],
+                          extrapolate: 'clamp',
+                        }),
+                      },
+                    ],
+                  },
+                ]}
+              >
+                <Image
+                  shouldRasterizeIOS
+                  blurRadius={40}
+                  source={require('./gradient.jpg')}
+                  style={styles.gradient}
+                />
+              </Animated.View>
+            </Animated.View>
+            <Image
+              style={{
+                position: 'absolute',
+                height: 240,
+                width: width - 32,
+                resizeMode: 'cover',
+              }}
+              source={require('./apple-pay-card.png')}
+            />
+          </View>
+        </View>
       </View>
     );
   }
@@ -107,7 +131,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4D4D50',
+    backgroundColor: 'white',
   },
   gradientContainer: {
     position: 'absolute',
