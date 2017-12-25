@@ -1,17 +1,16 @@
-# react-native-zoomable
+# react-native-iridescence
+A react-native component to next level your UI with gyroscope based iridescence.
 
-React Native component for pinch and double/single tap to zoom, most likely used to preview images but can be used to wrap anything.
-
-![Preview](https://raw.githubusercontent.com/LeBlaaanc/react-native-zoomable/master/preview.gif)
+![Preview](https://raw.githubusercontent.com/elevenfooteleven/react-native-iridescent/master/preview.gif)
 
 ## Usage
 
 ```javascript
-import Zoomable from 'react-native-zoomable';
+import Iridescent from 'react-native-iridescent';
 ```
 
 ```javascript
-<Zoomable
+<Iridescent
   zoomScale={3}
   onScrollOrZoom={(e) => alert('did that thing!')}
   tapToZoomOut="double"
