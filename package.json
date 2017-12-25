@@ -1,6 +1,6 @@
 {
   "name": "react-native-iridescent",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "description": "A react-native component to next level your UI with gyroscope based iridescence.",
   "scripts": {
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/LeBlaaanc/react-native-zoomable.git"
   },
-  "author": "Chris LeBlanc & Zach Gibson <chris@leblaaanc.com> (http://github.com/elevenfooteleven)",
+  "author": "Chris LeBlanc & Zach Gibson (http://github.com/elevenfooteleven)",
   "license": "MIT",  
   "dependencies": {
     "react-native-sensors": "^2.4.2"
