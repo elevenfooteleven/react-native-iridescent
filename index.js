@@ -1,4 +1,3 @@
-import { AppRegistry } from 'react-native';
-import App from './App';
+import Iridescent from './Iridescent';
 
-AppRegistry.registerComponent('ReactNativeIridescent', () => App);
+export default Iridescent;
