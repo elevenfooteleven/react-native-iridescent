@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LeBlaaanc/react-native-zoomable.git"
+    "url": "git+https://github.com/LeBlaaanc/react-native-iridescent.git"
   },
   "author": "Chris LeBlanc & Zach Gibson (http://github.com/elevenfooteleven)",
   "license": "MIT",  
@@ -18,7 +18,7 @@
   "peerDependencies": {
     "react-native": ">=0.49.0"
   },
-  "homepage": "https://github.com/LeBlaaanc/react-native-zoomable#readme",
+  "homepage": "https://github.com/LeBlaaanc/react-native-iridescent#readme",
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-preset-react-native": "^1.9.2",

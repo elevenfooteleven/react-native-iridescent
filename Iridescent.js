@@ -20,7 +20,7 @@ const MAX_Y_VAL = GRADIENT_HEIGHT / 2;
 
 import { Accelerometer } from 'react-native-sensors';
 
-export default class App extends React.Component {
+export default class Iridescent extends React.Component {
   x = new Animated.Value(0);
   y = new Animated.Value(0);
 

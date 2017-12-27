@@ -1,4 +1,4 @@
-# react-native-iridescence
+# react-native-iridescent
 A react-native component to next level your UI with gyroscope based iridescence.
 
 ![Preview](https://raw.githubusercontent.com/elevenfooteleven/react-native-iridescent/master/preview.gif)
