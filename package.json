@@ -1,6 +1,6 @@
 {
   "name": "react-native-iridescent",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "index.js",
   "description": "A react-native component to next level your UI with gyroscope based iridescence.",
   "scripts": {
@@ -8,17 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LeBlaaanc/react-native-iridescent.git"
+    "url": "git+https://github.com/elevenfooteleven/react-native-iridescent.git"
   },
   "author": "Chris LeBlanc & Zach Gibson (http://github.com/elevenfooteleven)",
-  "license": "MIT",  
+  "license": "MIT",
   "dependencies": {
     "react-native-sensors": "^2.4.2"
   },
-  "peerDependencies": {
-    "react-native": ">=0.49.0"
-  },
-  "homepage": "https://github.com/LeBlaaanc/react-native-iridescent#readme",
+  "homepage": "https://github.com/elevenfooteleven/react-native-iridescent#readme",
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-preset-react-native": "^1.9.2",
@@ -32,4 +29,3 @@
     "eslint-plugin-react-native": "^2.3.2"
   }
 }
-
