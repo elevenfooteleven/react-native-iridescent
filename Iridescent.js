@@ -104,21 +104,17 @@ export default class Iridescent extends React.Component {
                   },
                 ]}
               >
-                <Image
-                  shouldRasterizeIOS
-                  blurRadius={40}
-                  source={require('./gradient.jpg')}
-                  style={styles.gradient}
-                />
+                {this.props.background}
               </Animated.View>
             </Animated.View>
-            {...this.props.children}
+            {this.props.children}
           </View>
         </View>
       </View>
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -128,10 +124,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -GRADIENT_OFFSET_Y,
     left: -GRADIENT_OFFSET_X,
-    width: GRADIENT_WIDTH,
-    height: GRADIENT_HEIGHT,
-  },
-  gradient: {
     width: GRADIENT_WIDTH,
     height: GRADIENT_HEIGHT,
   },
