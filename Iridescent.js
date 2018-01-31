@@ -18,35 +18,41 @@ const GRADIENT_OFFSET_Y = (GRADIENT_HEIGHT - height) / 2;
 const MAX_X_VAL = GRADIENT_WIDTH / 2;
 const MAX_Y_VAL = GRADIENT_HEIGHT / 2;
 
-import { Accelerometer } from 'react-native-sensors';
+let Accelerometer;
+
 
 export default class Iridescent extends React.Component {
-  x = new Animated.Value(0);
-  y = new Animated.Value(0);
 
   componentDidMount() {
-    this.gyroscopeObservable = new Accelerometer({
-      updateInterval: 50,
-    });
-
-    this.gyroscopeObservable.subscribe(({ x, y, z }) => {
-      Animated.timing(this.x, {
-        toValue: x,
-        duration: 100,
-        useNativeDriver: true,
-      }).start();
-
-      Animated.timing(this.y, {
-        toValue: y,
-        duration: 100,
-        useNativeDriver: true,
-      }).start();
-    });
+    if (global.Expo) {
+      Accelerometer = global.Expo.Accelerometer;
+      Accelerometer.setUpdateInterval(50);
+      Accelerometer.addListener(this.onAccelerometerEvent);
+    } else {
+      // @TODO support more than expo via injected accelerometer?
+    }
   }
 
   componentWillUnmount() {
     this.gyroscopeObservable.stop();
   }
+
+  onAccelerometerEvent = ({ x, y }) => {
+    Animated.timing(this.x, {
+      toValue: x,
+      duration: 100,
+      useNativeDriver: true,
+    }).start();
+
+    Animated.timing(this.y, {
+      toValue: y,
+      duration: 100,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  x = new Animated.Value(0);
+  y = new Animated.Value(0);
 
   render() {
     return (

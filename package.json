@@ -12,9 +12,6 @@
   },
   "author": "Chris LeBlanc & Zach Gibson (http://github.com/elevenfooteleven)",
   "license": "MIT",
-  "dependencies": {
-    "react-native-sensors": "^2.4.2"
-  },
   "homepage": "https://github.com/elevenfooteleven/react-native-iridescent#readme",
   "devDependencies": {
     "babel-eslint": "^7.2.3",

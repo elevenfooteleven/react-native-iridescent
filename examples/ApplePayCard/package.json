@@ -1,14 +1,10 @@
 {
-  "name": "ApplePayCard",
-  "version": "0.0.1",
+  "main": "node_modules/expo/AppEntry.js",
   "private": true,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
-  },
   "dependencies": {
-    "react": "16.0.0",
-    "react-native": "0.51.0",
-    "react-native-iridescent": "file:../../",
-    "react-native-sensors": "^2.4.2"
+    "expo": "^25.0.0",
+    "react": "16.2.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
+    "react-native-iridescent": "./../../"
   }
 }
