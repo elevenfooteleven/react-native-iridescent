@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Apple Pay Card",
-    "description": "This project is really great.",
+    "description": "An example for demonstrating react-native-iridescent inspired by Apple's Pay Card.",
     "slug": "ApplePayCard",
     "privacy": "public",
     "sdkVersion": "25.0.0",
